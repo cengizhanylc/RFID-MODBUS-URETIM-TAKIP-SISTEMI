@@ -29,9 +29,14 @@ private:
     bool cardPresent_;
     uint8_t lastRawUid_[7];
     uint8_t lastRawUidLength_;
+    String lastConfigPayload_;
 
     uint32_t mapUidToUint32_(const uint8_t *uidBytes, uint8_t uidLength) const;
     bool checkForConfigTag_(uint8_t *uidBytes, uint8_t uidLength, String &configData);
+    bool readConfigTextFromTag_(String &configData);
+    bool extractNdefTextFromTag_(const uint8_t *tagData, uint16_t tagLength, String &configData) const;
+    bool extractTextRecord_(const uint8_t *message, uint16_t messageLength, String &configData) const;
+    bool extractPlainTextFromTag_(const uint8_t *tagData, uint16_t tagLength, String &configData) const;
 };
 
 #endif // RFID_READER_H

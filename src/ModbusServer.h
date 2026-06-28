@@ -9,6 +9,7 @@ public:
   ModbusServer();
   bool begin();
   void loop();
+  bool isStarted() const;
   void setUid(uint32_t uid);
   void setLastUid(uint32_t uid);
   uint32_t getUid() const;

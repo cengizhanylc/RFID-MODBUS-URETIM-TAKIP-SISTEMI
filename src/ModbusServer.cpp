@@ -23,6 +23,8 @@ void ModbusServer::loop() {
   modbus_.task();
 }
 
+bool ModbusServer::isStarted() const { return started_; }
+
 void ModbusServer::setUid(uint32_t uid) {
   uid_ = uid;
   if (!started_) return;

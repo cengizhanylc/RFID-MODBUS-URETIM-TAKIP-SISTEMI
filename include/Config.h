@@ -34,6 +34,14 @@ namespace Config {
     constexpr uint8_t RFID_PN532_IRQ_PIN   = 2;
     constexpr uint8_t RFID_PN532_RESET_PIN = 3;
     constexpr uint32_t I2C_CLOCK_SPEED     = 50000; 
+    constexpr uint8_t RFID_NTAG_FIRST_USER_PAGE = 4;
+    constexpr uint8_t RFID_NTAG_MAX_READ_PAGES = 48;
+    constexpr uint16_t RFID_NTAG_MAX_READ_BYTES = RFID_NTAG_MAX_READ_PAGES * 4;
+
+    // --- Donanım Gösterge Pinleri ---
+    constexpr uint8_t LED_AP_PIN = 47;
+    constexpr uint8_t LED_STA_PIN = 48;
+    constexpr uint8_t BUZZER_PIN = 7;
 
     // --- NVS (Kalıcı Hafıza) Namespace ve Anahtarları ---
     const char* const NVS_NAMESPACE          = "teos_storage";
@@ -47,6 +55,7 @@ namespace Config {
     // --- Super-Loop Zamanlama Ayarları ---
     constexpr uint32_t NETWORK_TASK_DELAY_MS = 100;
     constexpr uint32_t RFID_TASK_DELAY_MS    = 50; 
+    constexpr uint32_t RFID_UID_CLEAR_TIMEOUT_MS = 5000;
 }
 
 #endif // CONFIG_H
