@@ -29,19 +29,25 @@ namespace Config {
     constexpr uint16_t MODBUS_HREG_LAST_UID_LOW  = 3;
 
     // --- RFID PN532 I2C ve Donanım Pin Ayarları ---
-    constexpr uint8_t RFID_SDA_PIN         = 8; 
-    constexpr uint8_t RFID_SCL_PIN         = 9;
-    constexpr uint8_t RFID_PN532_IRQ_PIN   = 2;
-    constexpr uint8_t RFID_PN532_RESET_PIN = 3;
+    constexpr uint8_t RFID_SDA_PIN         = 1; 
+    constexpr uint8_t RFID_SCL_PIN         = 2;
+    constexpr uint8_t RFID_PN532_IRQ_PIN   = 11;
+    constexpr uint8_t RFID_PN532_RESET_PIN = 12;
     constexpr uint32_t I2C_CLOCK_SPEED     = 50000; 
     constexpr uint8_t RFID_NTAG_FIRST_USER_PAGE = 4;
     constexpr uint8_t RFID_NTAG_MAX_READ_PAGES = 48;
     constexpr uint16_t RFID_NTAG_MAX_READ_BYTES = RFID_NTAG_MAX_READ_PAGES * 4;
 
     // --- Donanım Gösterge Pinleri ---
-    constexpr uint8_t LED_AP_PIN = 47;
-    constexpr uint8_t LED_STA_PIN = 48;
+    // ESP32-S3-Zero üzerindeki BOOT düğmesi GPIO0'ı GND'ye çeker.
+    constexpr uint8_t BOOT_BUTTON_PIN = 0;
+    constexpr uint8_t RFID_IS_READ_PIN = 3;
+    constexpr uint8_t LED_AP_PIN = 5;
+    constexpr uint8_t LED_STA_PIN = 6;
     constexpr uint8_t BUZZER_PIN = 7;
+
+    // --- Donanım Buton Zamanlamaları ---
+    constexpr uint32_t BOOT_BUTTON_DEBOUNCE_MS = 50;
 
     // --- NVS (Kalıcı Hafıza) Namespace ve Anahtarları ---
     const char* const NVS_NAMESPACE          = "teos_storage";

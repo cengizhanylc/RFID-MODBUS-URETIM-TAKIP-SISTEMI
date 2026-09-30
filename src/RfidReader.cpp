@@ -90,7 +90,13 @@ bool RfidReader::readConfigTextFromTag_(String &configData) {
         const uint8_t page = Config::RFID_NTAG_FIRST_USER_PAGE + pageOffset;
         
         // Eğer okuma başarısız olursa, KISMİ VERİYİ KABUL ETME, DİREKT İPTAL ET
-        if (!pn532_.ntag2xx_ReadPage(page, pageData)) {
+        bool readSuccess = pn532_.ntag2xx_ReadPage(page, pageData);
+        if (!readSuccess) {
+            delay(10); // Kısa bir gecikme ekleyip tekrar dene (ESP32-S3 Zero için I2C kararlılık)
+            readSuccess = pn532_.ntag2xx_ReadPage(page, pageData);
+        }
+
+        if (!readSuccess) {
             Serial.println("[RFID] Read page failed, aborting partial read.");
             return false;
         }

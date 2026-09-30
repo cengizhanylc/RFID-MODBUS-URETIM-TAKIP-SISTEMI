@@ -7,6 +7,7 @@ Bu proje için ana hedef: yeni özellik eklerken `main.cpp` büyümesin, donanı
 - `src/main.cpp`: Arduino giriş noktasıdır; sadece uygulamaya delege eder.
 - `src/app/TeosSensorApp.*`: uygulama orkestrasyonudur; servisleri başlatır, döngü sırasını yönetir ve özellikleri birbirine bağlar.
 - `src/*Manager.*` ve `src/*Reader.*`: donanım, protokol veya altyapı servisleridir.
+- `src/features/BootButtonReset`: BOOT/GPIO0 düğmesinden fabrika ayarına dönüş isteğini yönetir. GPIO0 önyükleme pini olduğu için NVS temizleme ve yeniden başlatma, basış algılandıktan sonra tuş bırakılınca yapılır.
 - `include/Config.h`: pinler, zamanlamalar, portlar ve kalıcı anahtarlar gibi sabit ayarların tek kaynağıdır.
 - `src/features/Provisioning`: NFC/web gibi kaynaklardan gelen ağ ayarı metinlerini ortak modele çevirir.
 
